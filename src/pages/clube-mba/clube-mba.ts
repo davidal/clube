@@ -36,13 +36,13 @@ export class ClubeMBAPage {
   goToDetalheEvento(params){
     if (!params) params = {};
     
-    this.navCtrl.push(DetalheEventoPage, params);
+    this.navCtrl.push(DetalheEventoPage,  {  eventoId: params });
   }
 
   goToDetalheUtilizador(params){
     if (!params) params = {};
     
-    this.navCtrl.push(DetalhePerfilPage,params);
+    this.navCtrl.push(DetalhePerfilPage, {  UtilizadorId: params });
   }
 
 }

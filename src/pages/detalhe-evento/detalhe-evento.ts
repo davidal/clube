@@ -8,8 +8,8 @@ import { NavController,NavParams } from 'ionic-angular';
 export class DetalheEventoPage {
 
   constructor(public navCtrl: NavController,public navParams: NavParams) {
-    console.log('vento',navParams);
-    //navParams.get('');
+    //console.log('vento',navParams);
+    alert(navParams.get('eventoId'));
     
   }
   
