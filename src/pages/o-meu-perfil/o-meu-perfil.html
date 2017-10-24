@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      O Meu perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page1">
+  <ion-card id="oMeuPerfil-card21">
+    <ion-list>
+      <ion-item color="none" id="oMeuPerfil-list-item6">
+        <ion-thumbnail item-left>
+          <img src="assets/img/27PmgveiTJ6ozprc7HXx_F1.png" />
+        </ion-thumbnail>
+        <h2>
+          Nome
+        </h2>
+      </ion-item>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+      <ion-item id="oMeuPerfil-list-item-container2">
+        <div id="oMeuPerfil-markdown3" class="show-list-numbers-and-dots perfil">
+          <p style="margin-top:0px;color:#000000;">
+            Some friendly
+            <strong>
+              markdown
+            </strong>
+          </p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <form id="oMeuPerfil-form5">
+    <ion-item id="oMeuPerfil-input10">
+      <ion-label stacked>
+        Email
+      </ion-label>
+      <ion-input type="email" placeholder="insira o seu endereço de email" name="perfilEmail"></ion-input>
+    </ion-item>
+    <ion-item id="oMeuPerfil-input11">
+      <ion-label stacked>
+        Telefone
+      </ion-label>
+      <ion-input type="tel" placeholder="insira o seu número de telefone" name="perfilEmail"></ion-input>
+    </ion-item>
+    <button id="oMeuPerfil-button4" ion-button color="positive" block small>
+      Guardar Alterações
+    </button>
+    <div class="spacer" style="width:300px;height:0px;" id="oMeuPerfil-spacer2"></div>
+  </form>
+  <button id="oMeuPerfil-button6" ion-button outline color="assertive" block small on-click="logout()">
+    Logout
+  </button>
+</ion-content>

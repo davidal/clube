@@ -2,5 +2,7 @@
   "name": "clubemba",
   "app_id": "efe331ff",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

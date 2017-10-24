@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Registar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6">
+  <form id="registar-form6">
+    <ion-list id="registar-list5">
+      <ion-item id="registar-input12">
+        <ion-label>
+          Nome
+        </ion-label>
+        <ion-input type="text" placeholder="" name="nome"></ion-input>
+      </ion-item>
+      <ion-item id="registar-input13">
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" placeholder="" name="email"></ion-input>
+      </ion-item>
+      <ion-item id="registar-input14">
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="password" placeholder="" name="password"></ion-input>
+      </ion-item>
+      <ion-item id="registar-input15">
+        <ion-label>
+          Telefone
+        </ion-label>
+        <ion-input type="tel" placeholder="" name="phone"></ion-input>
+      </ion-item>
+      <ion-item id="registar-input16">
+        <ion-label>
+          Número de aluno
+        </ion-label>
+        <ion-input type="text" placeholder="" name="numeroaluno"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-item id="registar-select1">
+      <ion-label>
+        Curso
+      </ion-label>
+      <ion-select name="curso">
+        <ion-option></ion-option>
+        <ion-option>
+          MBA Exec
+        </ion-option>
+        <ion-option>
+          MBA Marketing
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item id="registar-input17">
+      <ion-label>
+        Ano de entrada
+      </ion-label>
+      <ion-input type="number" placeholder="" name="ano"></ion-input>
+    </ion-item>
+    <button id="registar-button5" ion-button color="stable" block on-click="goToClubeMBA()">
+      Registar
+    </button>
+  </form>
+</ion-content>

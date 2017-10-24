@@ -1,1 +1,31 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mainContent" id="menuMBA">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Clube MBA
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21" style="background-color:default;">
+    <ion-list id="menu-list1">
+      <ion-item color="none" menuClose="" on-click="goToOMeuPerfil()" id="menu-list-item1">
+        <ion-icon name="person" item-left></ion-icon>
+        Meu Perfil
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToClubeMBA()" id="menu-list-item2">
+        <ion-icon name="compass" item-left></ion-icon>
+        O Clube MBA
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPesquisar()" id="menu-list-item3">
+        <ion-icon name="search" item-left></ion-icon>
+        Pesquisar
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToNetworking()" id="menu-list-item17">
+        <ion-icon name="contacts" item-left></ion-icon>
+        Networking
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>
