@@ -8,45 +8,48 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page2">
+<ion-content padding id="page2" ng-if="clubeData != null">
   <div id="clubeMBA-markdown10" style="text-align:justify;" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      O
-      <strong>
-        Clube MBA
-      </strong>
-      bla bla bla
+     {{clubeData.Descricao_text}}
     </p>
   </div>
-  <ion-list id="clubeMBA-list2">
+  <ion-list ng-if="clubeData.Eventos.length > 0 " id="clubeMBA-list2">
     <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
       Eventos
     </ion-item-divider>
   </ion-list>
   <ion-list id="clubeMBA-list3">
-    <ion-item color="none" on-click="goToDetalheEvento()" id="clubeMBA-list-item13">
+    <ion-item color="none" on-click="goToDetalheEvento(evento.EventoId)" id="clubeMBA-list-item13" *ngFor="let evento of clubeData.Eventos">
       <ion-thumbnail item-left>
-        <img />
+        <img ng-src="evento.Foto">
       </ion-thumbnail>
       <h2>
-        Item 1
+        {{evento.Nome}}
       </h2>
-    </ion-item>
-    <ion-item color="none" on-click="goToDetalheEvento()" id="clubeMBA-list-item14">
-      <ion-thumbnail item-left>
-        <img />
-      </ion-thumbnail>
-      <h2>
-        Item 2
-      </h2>
-    </ion-item>
-    <ion-item color="none" on-click="goToDetalheEvento()" id="clubeMBA-list-item15">
-      <ion-thumbnail item-left>
-        <img />
-      </ion-thumbnail>
-      <h2>
-        Item 3
-      </h2>
+      <h3>{{evento.DataEvento}}</h3>
+      <p></p>
+      
     </ion-item>
   </ion-list>
+
+  <ion-list ng-if="clubeData.Equipa.length > 0 " id="clubeMBA-list2">
+    <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
+      Equipa
+    </ion-item-divider>
+  </ion-list>
+  <ion-list id="clubeMBA-list3">
+    <ion-item color="none" on-click="goToDetalheUtilizador(users.UserId)" id="clubeMBA-list-item13" *ngFor="let users of clubeData.Equipa">
+      <ion-thumbnail item-left>
+        <img ng-src="users.Foto">
+      </ion-thumbnail>
+      <h2>
+        {{users.Nome}}
+      </h2>
+      <h3>{{users.OrgaoSocial}}</h3>
+      <p>{{users.Funcao}}</p>
+      
+    </ion-item>
+  </ion-list>
+
 </ion-content>

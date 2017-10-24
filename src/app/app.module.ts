@@ -11,14 +11,16 @@ import { DetalheEventoPage } from '../pages/detalhe-evento/detalhe-evento';
 import { RegistarPage } from '../pages/registar/registar';
 import { NetworkingPage } from '../pages/networking/networking';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 //databvase: clubemba_app
 //username: clubemba_app
-//password: Coimbra2017!
+//password: Coimbra2017
 //http://clube-mba.pt/app/actions.php?action=GetUtilizadores&pwdWS=pwdClubeMBACoimbra
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-app-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     IonicStorageModule.forRoot({
       name: 'ClubeMbaDB',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
-    })
+    }),
+    HttpModule
     
   ],
   bootstrap: [IonicApp],
@@ -56,7 +59,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ClubeAppServiceProvider
   ]
 })
 export class AppModule {}
