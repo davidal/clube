@@ -29,14 +29,14 @@ export class ClubeMBAPage {
 
         this.clubeData=data;
       
-      console.log(this.clubeData);
+     console.log(this.clubeData);
     });
   }
 
   goToDetalheEvento(params){
     if (!params) params = {};
     
-    this.navCtrl.push(DetalheEventoPage,  {  eventoId: params });
+    this.navCtrl.push(DetalheEventoPage,  {  evento: params });
   }
 
   goToDetalheUtilizador(params){

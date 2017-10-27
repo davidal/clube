@@ -9,30 +9,29 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page5">
+  <h3>{{evento.DataEvento}}</h3>
   <h1 id="detalheEvento-heading2" style="color:#000000;">
-    Heading
+    {{evento.Nome}}
   </h1>
-  <div>
-    <img src="assets/img/IPsY5DToSvSAJD2aoM5r_Capturar.jpg" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+  
+  <div ng-hide="evento.Fotografia === null || evento.Fotografia == ''">
+    <img src="{{evento.Fotografia}}" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
   </div>
   <ion-card id="detalheEvento-card22">
     <ion-list>
-      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+      <div   ng-hide="evento.Fotografia === null || evento.Fotografia == ''" style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
         <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
       </div>
       <ion-item id="detalheEvento-list-item-container5">
         <div id="detalheEvento-markdown7" style="text-align:justify;" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
+            {{evento.Descricao}}
           </p>
         </div>
       </ion-item>
     </ion-list>
   </ion-card>
-  <button id="detalheEvento-button7" ion-button color="balanced" block small>
+  <button id="detalheEvento-button7" ion-button color="balanced" block small on-click="GoToDetails()">
     Ver mais detalhes
   </button>
 </ion-content>
