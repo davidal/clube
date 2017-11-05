@@ -8,36 +8,37 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+ 
 <ion-content padding id="page3">
-  <form id="pesquisar-form7">
+  <form id="pesquisar-form7" (ngSubmit)="doSearch()">
     <ion-item id="pesquisar-input19">
       <ion-label>
         Nome
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text" placeholder="" name="nome" [(ngModel)]="search.nome"></ion-input>
     </ion-item>
     <ion-item id="pesquisar-input20">
       <ion-label>
         Email
       </ion-label>
-      <ion-input type="email" placeholder=""></ion-input>
+      <ion-input type="email" placeholder="" name="email" [(ngModel)]="search.email"></ion-input>
     </ion-item>
     <ion-item id="pesquisar-input21">
       <ion-label>
         Telefone
       </ion-label>
-      <ion-input type="tel" placeholder=""></ion-input>
+      <ion-input type="tel" placeholder="" name="telefone" [(ngModel)]="search.telefone"></ion-input>
     </ion-item>
     <ion-item id="pesquisar-select2">
       <ion-label>
         Curso
       </ion-label>
-      <ion-select name="">
+      <ion-select name="curso"  [(ngModel)]="search.curso">
         <ion-option></ion-option>
-        <ion-option>
+        <ion-option value="1">
           MBA Exec
         </ion-option>
-        <ion-option>
+        <ion-option value="2">
           MBA Marketing
         </ion-option>
       </ion-select>
@@ -46,21 +47,21 @@
       <ion-label>
         Ano de entrada
       </ion-label>
-      <ion-input type="number" placeholder=""></ion-input>
+      <ion-input type="number" placeholder="" name="ano" [(ngModel)]="search.ano"></ion-input>
     </ion-item>
     <ion-item id="pesquisar-toggle8">
       <ion-label>
         Só com emails
       </ion-label>
-      <ion-toggle color="positive" checked="false"></ion-toggle>
+      <ion-toggle color="positive" checked="false" name="soComEmails" [(ngModel)]="search.blnOnlyEmails"></ion-toggle>
     </ion-item>
     <ion-item id="pesquisar-toggle9">
       <ion-label>
         Só com telefone
       </ion-label>
-      <ion-toggle color="positive" checked="false"></ion-toggle>
+      <ion-toggle color="positive" checked="false" name="soComTelefone" [(ngModel)]="search.blnOnlyPhone"></ion-toggle>
     </ion-item>
-    <button id="pesquisar-button8" ion-button color="positive" block on-click="goToNetworking()">
+    <button id="pesquisar-button8" type="submit"  ion-button color="positive" block  >
       Pesquisar
     </button>
   </form>

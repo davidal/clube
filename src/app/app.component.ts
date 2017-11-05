@@ -37,11 +37,11 @@ export class MyApp {
 
      
         // Or to get a key/value pair
-        storage.get('userId').then((val) => {
-         
+        storage.get('user').then((val) => {
+       //  alert(val);
           if(val != null){
-          this.navCtrl.setRoot(OMeuPerfilPage);
-          this.menuCtrl.enable(true, 'menuMBA');
+            this.navCtrl.setRoot(OMeuPerfilPage,{utilizador:val});
+            this.menuCtrl.enable(true, 'menuMBA');
           }
         
           else{

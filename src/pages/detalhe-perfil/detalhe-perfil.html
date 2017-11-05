@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      detalhePerfil
+      {{utilizador.Nome}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,32 +13,29 @@
     <ion-list>
       <ion-item color="none" id="detalhePerfil-list-item20">
         <ion-thumbnail item-left>
-          <img src="assets/img/27PmgveiTJ6ozprc7HXx_F1.png" />
+          <img src="{{utilizador.Foto}}" />
         </ion-thumbnail>
         <h2>
-          Nome
+          {{utilizador.NomeCurso}} -  {{utilizador.AnoEntrada}}
         </h2>
       </ion-item>
-      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div>
-      <ion-item id="detalhePerfil-list-item-container9">
+   <!--   <div style="width:100%;height:220px;margin:0px 0px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:9px;color:#888;vertical-align:middle;">{{utilizador.Biografia}}</i>
+      </div>-->
+   <ion-item id="detalhePerfil-list-item-container9">
         <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
           <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
+            {{utilizador.Biografia}}
           </p>
         </div>
       </ion-item>
       <ion-item color="none" href="mailto:" id="detalhePerfil-list-item21">
         <ion-icon name="mail" item-left></ion-icon>
-        email
+        {{utilizador.Email}}
       </ion-item>
       <ion-item color="none" href="tel:" id="detalhePerfil-list-item22">
         <ion-icon name="phone-portrait" item-left></ion-icon>
-        phone number
+        {{utilizador.Telefone}}
       </ion-item>
     </ion-list>
   </ion-card>

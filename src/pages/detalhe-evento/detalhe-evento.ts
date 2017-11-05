@@ -9,7 +9,7 @@ export class DetalheEventoPage {
 
   evento: any;
   constructor(public navCtrl: NavController,public navParams: NavParams) {
-     console.log('vento',navParams.get('evento'));
+   //  console.log('vento',navParams.get('evento'));
     this.evento = navParams.get('evento');
     
   }

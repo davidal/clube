@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,NavParams} from 'ionic-angular';
+import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
 
 @Component({
   selector: 'page-detalhe-perfil',
@@ -7,7 +8,23 @@ import { NavController } from 'ionic-angular';
 })
 export class DetalhePerfilPage {
 
-  constructor(public navCtrl: NavController) {
-  }
+  utilizador: any ={ nome: "" as string, telefone: "" as string, email:"" as string,  curso:"" as string, ano:"", blnOnlyEmails: false, 
+  blnOnlyPhone:false 
+      };
+
+  constructor(public navCtrl: NavController,public navParams: NavParams, public serviceProvider: ClubeAppServiceProvider) {
+    this.utilizador = navParams.get('utilizador');
+   console.log('user',this.utilizador);
+
+/* 
+    this.serviceProvider.searchUsers("UtilizadorId = "+utilizadorId)
+    .then(data => {
+      if (data !=null){
+        if((<string[]>data).length>0) this.utilizador=[];
+        else this.utilizador.push((<string[]>data)[0]);
+      
   
+  } });
+  */
+  }
 }

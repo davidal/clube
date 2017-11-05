@@ -41,8 +41,9 @@ export class ClubeMBAPage {
 
   goToDetalheUtilizador(params){
     if (!params) params = {};
+    console.log('userClube',params);
+    this.navCtrl.push(DetalhePerfilPage, {  utilizador: params });
     
-    this.navCtrl.push(DetalhePerfilPage, {  UtilizadorId: params });
   }
 
 }
