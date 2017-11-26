@@ -13,8 +13,8 @@ import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  UserLogin="";
-  UserPassword="";
+  UserLogin="davidal@gmail.com";
+  UserPassword="di";
   utilizador:any;
   constructor(public navCtrl: NavController,public storage:Storage,public menuCtrl: MenuController
     , public serviceProvider: ClubeAppServiceProvider) {

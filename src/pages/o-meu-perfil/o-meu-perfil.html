@@ -12,8 +12,9 @@
   <ion-card id="oMeuPerfil-card21">
     <ion-list>
       <ion-item color="none" id="oMeuPerfil-list-item6">
+        
         <ion-thumbnail item-left>
-          <img src="{{utilizador.Foto}}" />
+          <img src="{{utilizador.Foto}}" on-click="presentActionSheet();" />
         </ion-thumbnail>
         <h2>
           {{utilizador.Nome}}
@@ -24,6 +25,7 @@
         <div id="oMeuPerfil-markdown3" class="show-list-numbers-and-dots perfil">
           <p style="margin-top:0px;color:#000000;">
             {{utilizador.Biografia}}
+            
           </p>
         </div>
       </ion-item>

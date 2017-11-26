@@ -24,7 +24,7 @@ declare var cordova: any;
 export class OMeuPerfilPage {
   lastImage: string = null;
   loading: Loading;
-  utilizador: any ={ Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
+  utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
   blnOnlyPhone:false , Foto:"" as string
       };
   constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public navParams: NavParams) { 
@@ -42,14 +42,14 @@ export class OMeuPerfilPage {
            }
          
            else{
-            logout();
+            this.logout();
           }
           
          });
     }
     else
       this.utilizador = navParams.get('utilizador');
-    //console.log('perfil',this.utilizador);
+    console.log('perfil',this.utilizador);
   }
 public presentActionSheet() {
   let actionSheet = this.actionSheetCtrl.create({
@@ -93,34 +93,25 @@ public takePicture(sourceType) {
         .then(filePath => {
           let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
           let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
-          this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+          this.lastImage=this.utilizador.UtilizadorId+".png";
+          this.uploadImage(correctPath,currentName);
+          //this.copyFileToLocalDir(correctPath, currentName, this.utilizador.UtilizadorId+".png");
         });
     } else {
+      
       var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
       var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-      this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+
+      this.lastImage=this.utilizador.UtilizadorId+".png";
+      this.uploadImage(correctPath,currentName);
+
+     //this.copyFileToLocalDir(correctPath, currentName, this.utilizador.UtilizadorId+".png");
     }
   }, (err) => {
     this.presentToast('Error while selecting image.');
   });
 }
 
-// Create a new name for the image
-private createFileName() {
-  var d = new Date(),
-  n = d.getTime(),
-  newFileName =  n + ".jpg";
-  return newFileName;
-}
- 
-// Copy the image to a local folder
-private copyFileToLocalDir(namePath, currentName, newFileName) {
-  this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
-    this.lastImage = newFileName;
-  }, error => {
-    this.presentToast('Error while storing file.');
-  });
-}
  
 private presentToast(text) {
   let toast = this.toastCtrl.create({
@@ -141,13 +132,19 @@ public pathForImage(img) {
 }
 
 
-public uploadImage() {
+public uploadImage(correctPath,currentName) {
   // Destination URL
-  var url = "http://yoururl/upload.php";
+  var url = "http://clube-mba.pt/app/actions.php?pwdWS=pwdClubeMBACoimbra&action=UploadUserPhoto&UtilizadorId="+this.utilizador.UtilizadorId;
  
   // File for Upload
-  var targetPath = this.pathForImage(this.lastImage);
- 
+  var targetPath = "";//this.pathForImage(this.lastImage);
+  try {
+      targetPath = this.pathForImage(this.lastImage);
+  } catch (error) {
+      targetPath = "/Users/diogorodrigues/GitHub/clube/src/assets/img/diogo.png";//this.pathForImage(this.lastImage);
+  }
+
+   
   // File name only
   var filename = this.lastImage;
  
@@ -156,7 +153,7 @@ public uploadImage() {
     fileName: filename,
     chunkedMode: false,
     mimeType: "multipart/form-data",
-    params : {'fileName': filename}
+    params : {'fileName': filename, 'UtilizadorId':this.utilizador.UtilizadorId}
   };
  
   const fileTransfer: TransferObject = this.transfer.create();
@@ -170,6 +167,9 @@ public uploadImage() {
   fileTransfer.upload(targetPath, url, options).then(data => {
     this.loading.dismissAll()
     this.presentToast('Image succesful uploaded.');
+    this.utilizador.Foto="http://clube-mba.pt/app/fotos/" + this.lastImage;
+
+    this.storage.set('user',  this.utilizador);
   }, err => {
     this.loading.dismissAll()
     this.presentToast('Error while uploading file.');
@@ -178,7 +178,7 @@ public uploadImage() {
 
 
 
-logout(){
+public logout(){
 
   this.storage.clear().then(() => {
     this.navCtrl.setRoot(LoginPage);

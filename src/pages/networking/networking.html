@@ -12,9 +12,17 @@
   <ion-list id="networking-list7">
     <ion-item-sliding>
     <ion-item color="none" on-click="goToDetalhePerfil(user)" id="networking-list-item16" *ngFor="let user of users">
-        <ion-avatar item-left>
+        
+        <ion-avatar *ngIf = "user.Foto; else elseBlock" item-left>
           <img src="{{user.Foto}}" />
         </ion-avatar>
+  
+        <ng-template #elseBlock>
+          <ion-avatar   item-left>
+            <img src="../../assets/img/person.png" />
+          </ion-avatar>
+        </ng-template>
+
         <h2>
           {{user.Nome}}
         </h2>

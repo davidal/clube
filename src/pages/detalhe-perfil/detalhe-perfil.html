@@ -12,9 +12,18 @@
   <ion-card id="detalhePerfil-card24">
     <ion-list>
       <ion-item color="none" id="detalhePerfil-list-item20">
-        <ion-thumbnail item-left>
+       
+
+        <ion-thumbnail *ngIf = "utilizador.Foto; else elseBlock" item-start>
           <img src="{{utilizador.Foto}}" />
         </ion-thumbnail>
+  
+        <ng-template #elseBlock>
+          <ion-thumbnail>
+            <img src="../../assets/img/person.png">
+          </ion-thumbnail>
+        </ng-template>
+
         <h2>
           {{utilizador.NomeCurso}} -  {{utilizador.AnoEntrada}}
         </h2>
