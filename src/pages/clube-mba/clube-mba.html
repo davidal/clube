@@ -22,8 +22,9 @@
   <ion-list id="clubeMBA-list3">
     <ion-item color="none" on-click="goToDetalheEvento(evento)" id="clubeMBA-list-item13" *ngFor="let evento of clubeData.Eventos">
       <ion-thumbnail item-left>
-        <img ng-src="evento.Foto">
+        <img src="{{evento.Fotografia}}">
       </ion-thumbnail>
+      
       <h2>
         {{evento.Nome}}
       </h2>
