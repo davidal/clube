@@ -34,10 +34,10 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
+  primary:    #c20000,
+  secondary:  #fff,
+  danger:     #2ca8f0,
+  light:      #fa9696,
   dark:       #222
 );
 
@@ -86,3 +86,36 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+
+.leftMenu .item-md{
+
+  background: #c20000 !important;
+  color:#fff !important;
+}
+
+.toolbar, .toolbar-background-md{
+
+  background: #c20000 !important;
+  color:#fff !important;
+  border-color:#C20434 !important;
+}
+
+.toolbar-title-md, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+  color:#fff !important;
+}
+.topoNav > .toolbar .toolbar-background-md{
+
+  background: #fff !important;
+}
+
+
+
+$toolbar-md-title-text-color: #fff;
+$toolbar-ios-title-text-color: #fff;
+$toolbar-wp-title-text-color: #fff;
+
+$toolbar-ios-background: #c20000;
+$toolbar-md-background: #c20000;
+$toolbar-wp-background: #c20000;

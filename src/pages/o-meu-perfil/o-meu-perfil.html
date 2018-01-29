@@ -9,42 +9,83 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1">
-  <ion-card id="oMeuPerfil-card21">
-    <ion-list>
+ 
+      
+ 
+  <form id="oMeuPerfil-form5">
       <ion-item color="none" id="oMeuPerfil-list-item6">
         
-        <ion-thumbnail item-left>
-          <img src="{{utilizador.Foto}}" on-click="presentActionSheet();" />
-        </ion-thumbnail>
-        <h2>
-          {{utilizador.Nome}}
-        </h2>
-      </ion-item>
-      
-      <ion-item id="oMeuPerfil-list-item-container2">
-        <div id="oMeuPerfil-markdown3" class="show-list-numbers-and-dots perfil">
-          <p style="margin-top:0px;color:#000000;">
-            {{utilizador.Biografia}}
+          <ion-thumbnail  >
+            <img  src="{{utilizador.Foto}}" on-click="presentActionSheet();" />
+          </ion-thumbnail>
+           
+        
+        </ion-item>
+        
+      <ion-item id="oMeuPerfil-input1">
+          <ion-label stacked>
+            Nome
+          </ion-label>
+          <ion-input type="text" placeholder="insira o seu nome" name="perfilnome" [(ngModel)]="utilizador.Nome"></ion-input>
+        </ion-item>
+        <ion-item id="oMeuPerfil-input1">
+            <ion-label stacked>
+              Biografia
+            </ion-label>
+            <ion-textarea id="oMeuPerfil-markdown3" name="perfilBio" style="margin-top:0px;color:#000000;" [(ngModel)]="utilizador.Biografia" >
             
-          </p>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card>
-  <form id="oMeuPerfil-form5">
-    <ion-item id="oMeuPerfil-input10">
+           
+              </ion-textarea>  </ion-item>
+
+    <ion-item id="oMeuPerfil-input1">
       <ion-label stacked>
         Email
       </ion-label>
       <ion-input type="email" placeholder="insira o seu endereço de email" name="perfilEmail" [(ngModel)]="utilizador.Email"></ion-input>
     </ion-item>
+    <ion-item id="oMeuPerfil-input10">
+        <ion-label stacked>
+         Password
+        </ion-label>
+        <ion-input type="password" placeholder="insira a sua password" name="perfilPwd" [(ngModel)]="utilizador.Password"></ion-input>
+      </ion-item>
+
     <ion-item id="oMeuPerfil-input11">
       <ion-label stacked>
         Telefone
       </ion-label>
       <ion-input type="tel" placeholder="insira o seu número de telefone" name="perfilTelefone" [(ngModel)]="utilizador.Telefone"></ion-input>
     </ion-item>
-    <button id="oMeuPerfil-button4" ion-button color="positive" block small>
+    <ion-item id="oMeuPerfil-input12">
+        <ion-label stacked>
+          Número de Aluno
+        </ion-label>
+        <ion-input type="number" placeholder="insira o seu número de aluno" name="perfilNumeroAluno" [(ngModel)]="utilizador.NumeroAluno"></ion-input>
+      </ion-item>
+      <ion-item id="registar-select1">
+          <ion-label>
+            Curso
+          </ion-label>
+          <ion-select name="perfilCursoId" [(ngModel)]="utilizador.CursoId">
+            <ion-option ></ion-option>
+            <ion-option value="1"  >
+              MBA Exec
+            </ion-option>
+            <ion-option value="2" >
+              MBA Marketing
+            </ion-option>
+          </ion-select>
+        </ion-item>
+
+      <ion-item id="oMeuPerfil-input13">
+          <ion-label stacked>
+            Ano de entrada
+          </ion-label>
+          <ion-input type="number" name="perfilAno" placeholder="insira o ano em que começou o curso" [(ngModel)]="utilizador.AnoEntrada"></ion-input>
+        </ion-item>
+       
+
+    <button id="oMeuPerfil-button4" ion-button color="positive" block small on-click="saveProfile()">
       Guardar Alterações
     </button>
     <div class="spacer" style="width:300px;height:0px;" id="oMeuPerfil-spacer2"></div>

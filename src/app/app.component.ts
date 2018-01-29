@@ -15,6 +15,9 @@ import { MenuController } from 'ionic-angular';
 
 import { LoginPage } from '../pages/login/login';
 
+import { GramPage } from '../pages/gram/gram';
+import { MBACardPage } from '../pages/card/card';
+import { QrReaderPage } from '../pages/qrreader/qrreader';
 
 
 @Component({
@@ -78,5 +81,17 @@ export class MyApp {
   }goToDetalhePerfil(params){
     if (!params) params = {};
     this.navCtrl.setRoot(DetalhePerfilPage);
+  }
+  goToGram(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(GramPage);
+  }
+  goToCard(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(MBACardPage);
+  }
+  goToQrReader(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(QrReaderPage);
   }
 }

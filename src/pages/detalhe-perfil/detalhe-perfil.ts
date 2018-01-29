@@ -27,4 +27,8 @@ export class DetalhePerfilPage {
   } });
   */
   }
+
+  rand(){
+    return "?rand="+Math.random().toString(36).substring(7);
+  }
 }

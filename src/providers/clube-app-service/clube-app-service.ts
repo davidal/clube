@@ -46,6 +46,20 @@ searchUsers(filter) {
   });
   }
 
+  updateUsers(utililizador) {
+    let utilizadorString:string;
+    utilizadorString= JSON.stringify(utililizador);
+    return new Promise((resolve, reject) => {
+     
+      this.http.post(this.getApiUrl+'UpdateUtilizador', utilizadorString)
+      .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+    }
 
   private handleError (error: Response | any) {
     let errMsg: string;

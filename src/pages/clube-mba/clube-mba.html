@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>
+    <ion-title color="secondary">
       Clube MBA
     </ion-title>
   </ion-navbar>
@@ -40,9 +40,12 @@
   </ion-list>
   <ion-list id="clubeMBA-list3">
     <ion-item color="none" on-click="goToDetalheUtilizador(users)" id="clubeMBA-list-item13" *ngFor="let users of clubeData.Equipa">
-      <ion-thumbnail item-left>
-        <img ng-src="users.Foto">
-      </ion-thumbnail>
+   
+      <ion-thumbnail item-left item-start>
+          <img src="{{users.Foto}}"   /> 
+          
+   
+           </ion-thumbnail>
       <h2>
         {{users.Nome}}
       </h2>

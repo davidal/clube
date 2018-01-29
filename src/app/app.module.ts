@@ -17,6 +17,7 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { QRScanner } from '@ionic-native/qr-scanner';
 
 
 //databvase: clubemba_app
@@ -27,6 +28,9 @@ import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-app-service';
+import { GramPage } from '../pages/gram/gram';
+import { MBACardPage } from '../pages/card/card';
+import { QrReaderPage } from '../pages/qrreader/qrreader';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-ap
     LoginPage,
     DetalheEventoPage,
     RegistarPage,
-    NetworkingPage
+    NetworkingPage,
+    GramPage,
+    MBACardPage,
+    QrReaderPage
+  
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,10 @@ import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-ap
     LoginPage,
     DetalheEventoPage,
     RegistarPage,
-    NetworkingPage
+    NetworkingPage,
+    GramPage,
+    MBACardPage,
+    QrReaderPage
   ],
   providers: [
     StatusBar,
@@ -70,7 +81,8 @@ import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-ap
     File,
     Transfer,
     Camera,
-    FilePath
+    FilePath,
+    QRScanner
   ]
 })
 export class AppModule {}

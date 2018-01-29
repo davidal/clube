@@ -6,7 +6,7 @@ import { ClubeMBAPage } from '../clube-mba/clube-mba';
 import { DetalheEventoPage } from '../detalhe-evento/detalhe-evento';
 import { Storage } from '@ionic/storage';
 import { MenuController } from 'ionic-angular';
- 
+import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
 import {    ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
  
 import { File } from '@ionic-native/file';
@@ -22,12 +22,13 @@ declare var cordova: any;
   templateUrl: 'o-meu-perfil.html'
 })
 export class OMeuPerfilPage {
-  lastImage: string = null;
+ 
+  
   loading: Loading;
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
   blnOnlyPhone:false , Foto:"" as string
       };
-  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public navParams: NavParams) { 
+  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public navParams: NavParams, public serviceProvider: ClubeAppServiceProvider) { 
     
 
     if( navParams.get('utilizador') == null)
@@ -38,7 +39,7 @@ export class OMeuPerfilPage {
         
            if(val != null){
               this.utilizador=val;
-             
+             console.log('utilizador',this.utilizador);
            }
          
            else{
@@ -93,7 +94,7 @@ public takePicture(sourceType) {
         .then(filePath => {
           let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
           let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
-          this.lastImage=this.utilizador.UtilizadorId+".png";
+         // this.lastImage=this.utilizador.UtilizadorId+".png";
           this.uploadImage(correctPath,currentName);
           //this.copyFileToLocalDir(correctPath, currentName, this.utilizador.UtilizadorId+".png");
         });
@@ -102,7 +103,7 @@ public takePicture(sourceType) {
       var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
       var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
 
-      this.lastImage=this.utilizador.UtilizadorId+".png";
+     // this.lastImage=this.utilizador.UtilizadorId+".png";
       this.uploadImage(correctPath,currentName);
 
      //this.copyFileToLocalDir(correctPath, currentName, this.utilizador.UtilizadorId+".png");
@@ -139,21 +140,21 @@ public uploadImage(correctPath,currentName) {
   // File for Upload
   var targetPath = "";//this.pathForImage(this.lastImage);
   try {
-      targetPath = this.pathForImage(this.lastImage);
+      targetPath = correctPath + currentName ;//this.pathForImage(this.lastImage);
   } catch (error) {
       targetPath = "/Users/diogorodrigues/GitHub/clube/src/assets/img/diogo.png";//this.pathForImage(this.lastImage);
   }
 
-   
+   console.log("File: "+targetPath);
   // File name only
-  var filename = this.lastImage;
+  var filename = currentName;
  
   var options = {
     fileKey: "file",
-    fileName: filename,
+    fileName: currentName,
     chunkedMode: false,
     mimeType: "multipart/form-data",
-    params : {'fileName': filename, 'UtilizadorId':this.utilizador.UtilizadorId}
+    params : {'fileName': currentName, 'UtilizadorId':this.utilizador.UtilizadorId}
   };
  
   const fileTransfer: TransferObject = this.transfer.create();
@@ -167,8 +168,9 @@ public uploadImage(correctPath,currentName) {
   fileTransfer.upload(targetPath, url, options).then(data => {
     this.loading.dismissAll()
     this.presentToast('Image succesful uploaded.');
-    this.utilizador.Foto="http://clube-mba.pt/app/fotos/" + this.lastImage;
+    this.utilizador.Foto="http://clube-mba.pt/app/fotos/" + this.utilizador.UtilizadorId+".png";
 
+    console.log(this.utilizador);
     this.storage.set('user',  this.utilizador);
   }, err => {
     this.loading.dismissAll()
@@ -177,6 +179,13 @@ public uploadImage(correctPath,currentName) {
 }
 
 
+public saveProfile(){
+
+  //   console.log(this.utilizador);
+   this.serviceProvider.updateUsers(this.utilizador);
+   this.storage.set('user',  this.utilizador);
+ //
+}
 
 public logout(){
 
@@ -198,5 +207,9 @@ public logout(){
   }goToClubeMBA(params){
     if (!params) params = {};
     this.navCtrl.push(ClubeMBAPage);
+  }
+
+  rand(){
+    return "?rand="+Math.random().toString(36).substring(7);
   }
 }
