@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { RegistarPage } from '../registar/registar';
 import { ClubeMBAPage } from '../clube-mba/clube-mba';
 import { DetalheEventoPage } from '../detalhe-evento/detalhe-evento';
-import { Storage } from '@ionic/storage';
+
 import { MenuController } from 'ionic-angular';
 import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-login',
@@ -32,7 +32,7 @@ export class LoginPage {
 
   doLogin(params){
     if (!params) params = {};
-    var sqlString = "  Email = '"+this.UserLogin.replace("'","''")+"' and Password = '"+this.UserPassword.replace("'","''")+"' ";
+    var sqlString = " IsValid=1 AND Email = '"+this.UserLogin.replace("'","''")+"' and Password = '"+this.UserPassword.replace("'","''")+"' ";
     
    this.serviceProvider.searchUsers(sqlString)
    .then(data => {

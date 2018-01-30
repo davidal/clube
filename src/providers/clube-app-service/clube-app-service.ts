@@ -61,6 +61,22 @@ searchUsers(filter) {
     });
     }
 
+   insertUsers(utililizador) {
+      let utilizadorString:string;
+      utilizadorString= JSON.stringify(utililizador);
+      return new Promise((resolve, reject) => {
+       
+        this.http.post(this.getApiUrl+'InsertUtilizador', utilizadorString)
+        .map(res => res.json())
+          .subscribe(res => {
+            resolve(res); 
+          }, (err) => {
+            reject(err);
+          });
+      });
+      }
+
+
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {

@@ -9,61 +9,103 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page6">
-  <form id="registar-form6">
-    <ion-list id="registar-list5">
-      <ion-item id="registar-input12">
-        <ion-label>
+  
+  
+      
+ 
+  <form id="oMeuPerfil-form5">
+      
+    <ion-item id="oMeuPerfil-input1">
+        <ion-label stacked>
           Nome
         </ion-label>
-        <ion-input type="text" placeholder="" name="nome"></ion-input>
+        <ion-input type="text" placeholder="insira o seu nome" name="perfilnome" [(ngModel)]="utilizador.Nome"></ion-input>
       </ion-item>
-      <ion-item id="registar-input13">
-        <ion-label>
-          Email
-        </ion-label>
-        <ion-input type="email" placeholder="" name="email"></ion-input>
-      </ion-item>
-      <ion-item id="registar-input14">
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="password" placeholder="" name="password"></ion-input>
-      </ion-item>
-      <ion-item id="registar-input15">
-        <ion-label>
-          Telefone
-        </ion-label>
-        <ion-input type="tel" placeholder="" name="phone"></ion-input>
-      </ion-item>
-      <ion-item id="registar-input16">
-        <ion-label>
-          Número de aluno
-        </ion-label>
-        <ion-input type="text" placeholder="" name="numeroaluno"></ion-input>
-      </ion-item>
-    </ion-list>
-    <ion-item id="registar-select1">
-      <ion-label>
-        Curso
+      <ion-item id="oMeuPerfil-input1">
+          <ion-label stacked>
+            Biografia
+          </ion-label>
+          <ion-textarea id="oMeuPerfil-markdown3" name="perfilBio" style="margin-top:0px;color:#000000;" [(ngModel)]="utilizador.Biografia" placeholder="sobre si"  >
+          
+         
+            </ion-textarea>  </ion-item>
+
+  <ion-item id="oMeuPerfil-input1">
+    <ion-label stacked>
+      Email
+    </ion-label>
+    <ion-input type="email" placeholder="insira o seu endereço de email" name="perfilEmail" [(ngModel)]="utilizador.Email"></ion-input>
+  </ion-item>
+  <ion-item id="oMeuPerfil-input10">
+      <ion-label stacked>
+       Password
       </ion-label>
-      <ion-select name="curso">
-        <ion-option></ion-option>
-        <ion-option>
-          MBA Exec
-        </ion-option>
-        <ion-option>
-          MBA Marketing
-        </ion-option>
-      </ion-select>
+      <ion-input type="password" placeholder="insira a sua password" name="perfilPwd" [(ngModel)]="utilizador.Password"></ion-input>
     </ion-item>
-    <ion-item id="registar-input17">
-      <ion-label>
-        Ano de entrada
+
+  <ion-item id="oMeuPerfil-input11">
+    <ion-label stacked>
+      Telefone
+    </ion-label>
+    <ion-input type="tel" placeholder="insira o seu número de telefone" name="perfilTelefone" [(ngModel)]="utilizador.Telefone"></ion-input>
+  </ion-item>
+
+  <ion-item id="registar-tipo" >
+    <ion-label>
+      Tipo de inscrição
+    </ion-label>
+    <ion-select name="tipo" [(ngModel)]="utilizador.TipoId">
+       
+      <ion-option value="1">
+        Aluno
+      </ion-option>
+      <ion-option value="2">
+        Empresa
+      </ion-option>
+      <ion-option value="3">
+        Sponsor
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item id="oMeuPerfil-input12" *ngIf="utilizador.TipoId==1">
+      <ion-label stacked>
+        Número de Aluno
       </ion-label>
-      <ion-input type="number" placeholder="" name="ano"></ion-input>
+      <ion-input type="number" placeholder="insira o seu número de aluno" name="perfilNumeroAluno" [(ngModel)]="utilizador.NumeroAluno"></ion-input>
     </ion-item>
-    <button id="registar-button5" ion-button color="stable" block on-click="goToClubeMBA()">
-      Registar
-    </button>
-  </form>
+    <ion-item id="registar-select1"   *ngIf="utilizador.TipoId==1">
+        <ion-label>
+          Curso
+        </ion-label>
+        <ion-select name="perfilCursoId" [(ngModel)]="utilizador.CursoId">
+          
+          <ion-option value="1"  >
+            MBA Exec
+          </ion-option>
+          <ion-option value="2" >
+            MBA Marketing
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item id="oMeuPerfil-input13"   *ngIf="utilizador.TipoId==1">
+        <ion-label stacked>
+          Ano de entrada
+        </ion-label>
+        <ion-input type="number" name="perfilAno" placeholder="insira o ano em que começou o curso" [(ngModel)]="utilizador.AnoEntrada"></ion-input>
+      </ion-item>
+     
+      <ion-item id="oMeuPerfil-input13">
+        <ion-label stacked>
+         Código de registo
+        </ion-label>
+        <ion-input type="text" name="perfilAno" placeholder="Tem um código de registo? Insira-o aqui." [(ngModel)]="utilizador.AutoCode"></ion-input>
+      </ion-item>
+  <button id="oMeuPerfil-button4" ion-button color="positive" block small on-click="saveProfile()">
+    Registar
+  </button>
+  <div class="spacer" style="width:300px;height:0px;" id="oMeuPerfil-spacer2"></div>
+</form>
+
 </ion-content>

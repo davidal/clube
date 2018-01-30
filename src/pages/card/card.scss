@@ -1,3 +1,22 @@
 page-card {
 
 }
+
+.nomeCard{
+    color: white;
+    font-size: 40px;
+    position: relative;
+    top: 77px;
+    left: 119px;
+
+}
+
+.cartao{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    padding-top:150px;
+
+}
