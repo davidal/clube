@@ -50,7 +50,7 @@ export class OMeuPerfilPage {
     }
     else
       this.utilizador = navParams.get('utilizador');
-    console.log('perfil',this.utilizador);
+   // console.log('perfil',this.utilizador);
   }
 public presentActionSheet() {
   let actionSheet = this.actionSheetCtrl.create({

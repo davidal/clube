@@ -6,17 +6,59 @@ page-card {
     color: white;
     font-size: 40px;
     position: relative;
-    top: 77px;
-    left: 119px;
+    top: 25%;
+    left: 15%;
 
-}
-
-.cartao{
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    padding-top:150px;
+
+}
+
+  
+.fotoUtilizador{
+    display: block;
+    height: 50%;
+    max-height: 300px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    position: absolute;
+    bottom:5%;
+    right: 15%;
+
+
+}
+
+.cartao  { 
+ clear: both;
+ 
+
+ /* Location of the image */
+ background-image: url(/assets/img/cartao.png);
+  
+ /* Background image is centered vertically and horizontally at all times */
+ background-position: center center;
+ 
+ /* Background image doesn't tile */
+ background-repeat: no-repeat;
+ 
+ /* Background image is fixed in the viewport so that it doesn't move when 
+    the content's height is greater than the image's height */
+ background-attachment: fixed;
+ 
+ /* This is what makes the background image rescale based
+    on the container's size */
+ background-size: cover;
+ 
+ /* Set a background color that will be displayed
+    while the background image is loading */
+ background-color: #464646;
+//  background-position-y: 54px; 
 
 }

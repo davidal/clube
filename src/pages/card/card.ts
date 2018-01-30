@@ -4,7 +4,7 @@ import { DetalhePerfilPage } from '../detalhe-perfil/detalhe-perfil';
 import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
 import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
 import { Http, Headers, RequestOptions } from '@angular/http';
-
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
 import { HttpModule } from '@angular/http';
@@ -15,12 +15,28 @@ import { HttpModule } from '@angular/http';
 })
 export class MBACardPage {
 
-  url  ;
  
-  constructor(public navCtrl: NavController,public http: Http, public sanitizer: DomSanitizer, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams)
+ 
+  utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
+  blnOnlyPhone:false , Foto:"" as string
+      };
+
+  constructor(public navCtrl: NavController,public storage:Storage, public http: Http, public sanitizer: DomSanitizer, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams)
    {
     
- 
+    storage.get('user').then((val) => {
+      //  alert(val);
+      
+         if(val != null){
+            this.utilizador=val;
+           console.log('utilizador',this.utilizador);
+         }
+       
+         else{
+         
+        }
+        
+       });
   
   }
   rand(){
