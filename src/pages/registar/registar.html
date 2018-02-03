@@ -67,6 +67,22 @@
       </ion-option>
     </ion-select>
   </ion-item>
+ 
+  
+    <ion-item id="registar-select1"   *ngIf="utilizador.TipoId==2">
+        <ion-label>
+          Setor de atividade
+        </ion-label>
+        <ion-select name="setorUser" [(ngModel)]="utilizador.SetorId">
+     
+          <ion-option  *ngFor="let setor of setores"  [value]="setor.SetorId"  >
+           {{setor.Nome}}
+          </ion-option>
+         
+        </ion-select>
+ 
+
+      </ion-item>
 
   <ion-item id="oMeuPerfil-input12" *ngIf="utilizador.TipoId==1">
       <ion-label stacked>

@@ -8,7 +8,18 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content padding>
-    <div  id="teste" style="width:100%; height:100%"></div>
-    </ion-content>
+    <div id="instafeed"></div>
+    <script type="text/javascript">
+      alert('s');
+      var feed = new Instafeed({
+          get: 'tagged',
+          tagName: 'clubemba',
+          clientId: 'da1c5b90aa45458ba129481dd13f447d'
+      });
+      feed.run();
+    
+  </script>
+        
+</ion-content>

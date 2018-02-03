@@ -56,6 +56,41 @@
       </ion-label>
       <ion-input type="tel" placeholder="insira o seu número de telefone" name="perfilTelefone" [(ngModel)]="utilizador.Telefone"></ion-input>
     </ion-item>
+
+    <ion-item id="registar-tipo" >
+        <ion-label>
+          Tipo de inscrição
+        </ion-label>
+        <ion-select name="tipo" [(ngModel)]="utilizador.TipoId">
+           
+          <ion-option value="1">
+            Aluno
+          </ion-option>
+          <ion-option value="2">
+            Empresa
+          </ion-option>
+          <ion-option value="3">
+            Sponsor
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+
+    <ion-item id="registar-select1"   *ngIf="utilizador.TipoId==2">
+        <ion-label>
+          Setor de atividade
+        </ion-label>
+        <ion-select name="setorUser" [(ngModel)]="utilizador.SetorId">
+     
+          <ion-option  *ngFor="let setor of setores"  [value]="setor.SetorId"  >
+           {{setor.Nome}}
+          </ion-option>
+         
+        </ion-select>
+ 
+
+      </ion-item>
+
     <ion-item id="oMeuPerfil-input12">
         <ion-label stacked>
           Número de Aluno

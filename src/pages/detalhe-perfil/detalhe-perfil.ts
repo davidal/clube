@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController ,NavParams} from 'ionic-angular';
 import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 @Component({
   selector: 'page-detalhe-perfil',
   templateUrl: 'detalhe-perfil.html'
@@ -12,7 +12,8 @@ export class DetalhePerfilPage {
   blnOnlyPhone:false 
       };
 
-  constructor(public navCtrl: NavController,public navParams: NavParams, public serviceProvider: ClubeAppServiceProvider) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, 
+    public serviceProvider: ClubeAppServiceProvider,private photoViewer: PhotoViewer) {
     this.utilizador = navParams.get('utilizador');
    console.log('user',this.utilizador);
 
@@ -26,6 +27,12 @@ export class DetalhePerfilPage {
   
   } });
   */
+  }
+
+  showPhoto(){
+    console.log("Abrir foto "+this.utilizador.Foto);
+    this.photoViewer.show(this.utilizador.Foto);
+
   }
 
   rand(){

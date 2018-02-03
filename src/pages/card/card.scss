@@ -4,11 +4,11 @@ page-card {
 
 .nomeCard{
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     position: relative;
     top: 25%;
     left: 15%;
-
+    background-attachment: fixed;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -20,8 +20,8 @@ page-card {
   
 .fotoUtilizador{
     display: block;
-    height: 50%;
-    max-height: 300px;
+    height: 30%;
+    max-height: 150px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -29,9 +29,9 @@ page-card {
     transform: rotate(90deg);
 
     position: absolute;
-    bottom:5%;
-    right: 15%;
-
+    bottom:9%;
+    right: 22%;
+    background-attachment: fixed;
 
 }
 
@@ -40,7 +40,7 @@ page-card {
  
 
  /* Location of the image */
- background-image: url(/assets/img/cartao.png);
+ background-image: url('http://clube-mba.pt/app/cartao.png');
   
  /* Background image is centered vertically and horizontally at all times */
  background-position: center center;
@@ -54,7 +54,7 @@ page-card {
  
  /* This is what makes the background image rescale based
     on the container's size */
- background-size: cover;
+ background-size: contain;
  
  /* Set a background color that will be displayed
     while the background image is loading */

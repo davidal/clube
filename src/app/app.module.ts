@@ -18,6 +18,7 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 //databvase: clubemba_app
@@ -82,7 +83,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
     Transfer,
     Camera,
     FilePath,
-    QRScanner
+    QRScanner,
+    PhotoViewer
   ]
 })
 export class AppModule {}

@@ -14,6 +14,7 @@ import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 
+
 declare var cordova: any;
 
 
@@ -22,15 +23,27 @@ declare var cordova: any;
   templateUrl: 'o-meu-perfil.html'
 })
 export class OMeuPerfilPage {
- 
+  setores: any = [];
   
   loading: Loading;
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
   blnOnlyPhone:false , Foto:"" as string
       };
-  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController,public navParams: NavParams, public serviceProvider: ClubeAppServiceProvider) { 
+  constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer,
+     private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform,
+      public loadingCtrl: LoadingController,public navParams: NavParams,
+       public serviceProvider: ClubeAppServiceProvider) { 
     
-
+    this.serviceProvider.getSetores()
+    .then(data => {
+      if((<string[]>data).length>0) this.setores=[];
+      for(var i=0; i<(<string[]>data).length; i++){
+        this.setores.push((<string[]>data)[i]);
+      }
+     
+      //this.users = data ;
+      
+    });
     if( navParams.get('utilizador') == null)
     {
       
@@ -52,6 +65,8 @@ export class OMeuPerfilPage {
       this.utilizador = navParams.get('utilizador');
    // console.log('perfil',this.utilizador);
   }
+
+  
 public presentActionSheet() {
   let actionSheet = this.actionSheetCtrl.create({
     title: 'Select Image Source',

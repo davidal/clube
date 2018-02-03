@@ -32,6 +32,18 @@ export class ClubeAppServiceProvider {
     });
   }
   
+  getSetores() {
+    return new Promise(resolve => {
+      this.http.get(this.getApiUrl+"GetSetores")
+      .map(res =>  res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
 
 searchUsers(filter) {
  

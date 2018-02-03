@@ -14,12 +14,25 @@ import { LoginPage } from '../login/login';
 })
 export class RegistarPage {
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
-  blnOnlyPhone:false , Foto:"" as string, Tipo: -1
+  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1
       };
+
+      setores: any = [];
 
   constructor(public navCtrl: NavController,public storage:Storage
     , public serviceProvider: ClubeAppServiceProvider,public menuCtrl: MenuController, private toastCtrl: ToastController) {
     
+      this.serviceProvider.getSetores()
+      .then(data => {
+        if((<string[]>data).length>0) this.setores=[];
+        for(var i=0; i<(<string[]>data).length; i++){
+          this.setores.push((<string[]>data)[i]);
+        }
+       
+        //this.users = data ;
+        
+      });
+
   }
 
   public presentToast(msg) {

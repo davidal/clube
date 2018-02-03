@@ -19,24 +19,8 @@ export class GramPage {
 conteudo="Loading...";
   constructor(public navCtrl: NavController,public http: Http, public sanitizer: DomSanitizer, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams)
    {
-   this.url=sanitizer.bypassSecurityTrustResourceUrl("https://www.instagram.com/explore/tags/coimbra/");
-
-
-    let proxyurl = "https://cors-anywhere.herokuapp.com/";
-this.url = this.http
-  .get( 'https://www.instagram.com/explore/tags/coimbra/')
-  .map(response => response.text())
-  .subscribe(
-    function (data) {
-      //this.conteudo= (data);
-      alert(this.conteudo);
-      document.getElementById("teste").innerHTML=(data);
-    }
-);
-
-  
+ 
   }
-
  
  
 }
