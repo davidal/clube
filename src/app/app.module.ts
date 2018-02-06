@@ -19,6 +19,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 //databvase: clubemba_app
@@ -56,7 +58,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
       name: 'ClubeMbaDB',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
-    HttpModule
+    HttpModule,
+    NgxQRCodeModule
     
   ],
   bootstrap: [IonicApp],
@@ -84,7 +87,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
     Camera,
     FilePath,
     QRScanner,
-    PhotoViewer
+    PhotoViewer,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

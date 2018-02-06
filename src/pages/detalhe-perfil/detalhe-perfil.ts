@@ -8,9 +8,15 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 })
 export class DetalhePerfilPage {
 
-  utilizador: any ={ nome: "" as string, telefone: "" as string, email:"" as string,  curso:"" as string, ano:"", blnOnlyEmails: false, 
-  blnOnlyPhone:false 
-      };
+  qrData = null;
+  createdCode = null;
+  scannedCode = null;
+
+ 
+      utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
+      blnOnlyPhone:false , Foto:"" as string
+          };
+
 
   constructor(public navCtrl: NavController,public navParams: NavParams, 
     public serviceProvider: ClubeAppServiceProvider,private photoViewer: PhotoViewer) {
@@ -27,6 +33,14 @@ export class DetalhePerfilPage {
   
   } });
   */
+
+  this.qrData = this.utilizador.UtilizadorId;
+  this.createCode();
+  
+  }
+
+  createCode() {
+    this.createdCode = this.qrData;
   }
 
   showPhoto(){

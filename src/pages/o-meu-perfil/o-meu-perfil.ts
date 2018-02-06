@@ -13,6 +13,7 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 declare var cordova: any;
@@ -25,6 +26,10 @@ declare var cordova: any;
 export class OMeuPerfilPage {
   setores: any = [];
   
+  qrData = null;
+  createdCode = null;
+  scannedCode = null;
+
   loading: Loading;
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
   blnOnlyPhone:false , Foto:"" as string
@@ -32,7 +37,7 @@ export class OMeuPerfilPage {
   constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer,
      private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform,
       public loadingCtrl: LoadingController,public navParams: NavParams,
-       public serviceProvider: ClubeAppServiceProvider) { 
+       public serviceProvider: ClubeAppServiceProvider, private barcodeScanner: BarcodeScanner) { 
     
     this.serviceProvider.getSetores()
     .then(data => {
@@ -64,6 +69,9 @@ export class OMeuPerfilPage {
     else
       this.utilizador = navParams.get('utilizador');
    // console.log('perfil',this.utilizador);
+
+   this.qrData = this.utilizador.UtilizadorId;
+  this.createCode();
   }
 
   
@@ -145,6 +153,19 @@ public pathForImage(img) {
   } else {
     return cordova.file.dataDirectory + img;
   }
+}
+
+
+createCode() {
+  this.createdCode = this.qrData;
+}
+
+scanCode() {
+  this.barcodeScanner.scan().then(barcodeData => {
+    this.scannedCode = barcodeData.text;
+  }, (err) => {
+      console.log('Error: ', err);
+  });
 }
 
 

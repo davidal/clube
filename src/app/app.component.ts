@@ -18,7 +18,7 @@ import { LoginPage } from '../pages/login/login';
 import { GramPage } from '../pages/gram/gram';
 import { MBACardPage } from '../pages/card/card';
 import { QrReaderPage } from '../pages/qrreader/qrreader';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @Component({
   templateUrl: 'app.html'
