@@ -42,7 +42,6 @@
     "cordova-plugin-file-transfer": "^1.6.3",
     "cordova-plugin-filepath": "^1.1.0",
     "cordova-plugin-ionic-webview": "^1.1.16",
-    "cordova-plugin-qrscanner": "^2.5.0",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-statusbar": "^2.3.0",
     "cordova-plugin-swift-support": "^3.1.1",
@@ -80,7 +79,6 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-qrscanner": {},
       "com-sarriaroman-photoviewer": {},
       "phonegap-plugin-barcodescanner": {
         "CAMERA_USAGE_DESCRIPTION": " "
