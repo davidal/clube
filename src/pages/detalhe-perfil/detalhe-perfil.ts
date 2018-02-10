@@ -14,7 +14,7 @@ export class DetalhePerfilPage {
 
  
       utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
-      blnOnlyPhone:false , Foto:"" as string
+      blnOnlyPhone:false , Foto:"" as string,TipoId: -1, SetorId: -1
           };
 
 
@@ -34,7 +34,7 @@ export class DetalhePerfilPage {
   } });
   */
 
-  this.qrData = this.utilizador.UtilizadorId;
+  this.qrData = "ClubeMBA#"+this.utilizador.UtilizadorId;
   this.createCode();
   
   }

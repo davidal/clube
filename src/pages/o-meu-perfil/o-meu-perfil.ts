@@ -32,7 +32,7 @@ export class OMeuPerfilPage {
 
   loading: Loading;
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
-  blnOnlyPhone:false , Foto:"" as string
+  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1
       };
   constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer,
      private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform,
@@ -70,7 +70,7 @@ export class OMeuPerfilPage {
       this.utilizador = navParams.get('utilizador');
    // console.log('perfil',this.utilizador);
 
-   this.qrData = this.utilizador.UtilizadorId;
+   this.qrData = "ClubeMBA#"+this.utilizador.UtilizadorId;
   this.createCode();
   }
 

@@ -15,16 +15,18 @@
   <form id="oMeuPerfil-form5">
       <ion-item color="none" id="oMeuPerfil-list-item6">
         <ion-grid>
-          <ion-row>   <ion-card>  
+          <ion-row>    
             <ion-col>
-              <ion-thumbnail class="fotoUser" >
+              <div item-start class="fotoUser" >
                 <img  src="{{utilizador.Foto}}" on-click="presentActionSheet();" />
-              </ion-thumbnail>
+              </div>
             </ion-col>
             <ion-col>
+                <div item-end >
               <ngx-qrcode text-end class="qrCode" *ngIf="createdCode" [qrc-value]="createdCode"></ngx-qrcode>
+                </div>
             </ion-col>
-    </ion-card></ion-row></ion-grid>
+          </ion-row></ion-grid>
        
        
           

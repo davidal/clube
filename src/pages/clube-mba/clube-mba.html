@@ -11,7 +11,7 @@
 <ion-content padding id="page2" ng-if="clubeData != null">
   <div id="clubeMBA-markdown10" style="text-align:justify;" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-     {{clubeData.Descricao_text}}
+      {{clubeData.Descricao_text}}
     </p>
   </div>
   <ion-list ng-if="clubeData.Eventos.length > 0 " id="clubeMBA-list2">
@@ -24,13 +24,13 @@
       <ion-thumbnail item-left>
         <img src="{{evento.Fotografia}}">
       </ion-thumbnail>
-      
+
       <h2>
         {{evento.Nome}}
       </h2>
       <h3>{{evento.DataEvento}}</h3>
       <p></p>
-      
+
     </ion-item>
   </ion-list>
 
@@ -40,20 +40,28 @@
     </ion-item-divider>
   </ion-list>
   <ion-list id="clubeMBA-list3">
-    <ion-item color="none" on-click="goToDetalheUtilizador(users)" id="clubeMBA-list-item13" *ngFor="let users of clubeData.Equipa">
+<div *ngFor="let users of clubeData.Equipa;  let i = index;">
    
+    <ion-item-divider style="height:15px;" color="segundoSeparador" *ngIf=" i==0 || (i>0 && users.OrgaoSocial != clubeData.Equipa[i-1].OrgaoSocial)">{{users.OrgaoSocial}}</ion-item-divider>
+    
+    <ion-item color="none" on-click="goToDetalheUtilizador(users)" id="clubeMBA-list-item13" >
+
+     
+
+
       <ion-thumbnail item-left item-start>
-          <img src="{{users.Foto}}"   /> 
-          
-   
-           </ion-thumbnail>
+        <img src="{{users.Foto}}" />
+
+
+      </ion-thumbnail>
       <h2>
         {{users.Nome}}
       </h2>
-      <h3>{{users.OrgaoSocial}}</h3>
+
       <p>{{users.Funcao}}</p>
-      
+
     </ion-item>
+  </div>
   </ion-list>
 
 </ion-content>

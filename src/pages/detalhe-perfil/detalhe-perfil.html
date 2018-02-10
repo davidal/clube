@@ -12,60 +12,88 @@
   <!-- <ion-card id="detalhePerfil-card24"> -->
   <!-- <ion-list> -->
   <ion-item color="none" id="detalhePerfil-list-item20">
-    <ion-item color="none" id="oMeuPerfil-list-item6">
-      <ion-grid>
-        <ion-row>
-          <ion-card>
-            <ion-col>
-              <ion-thumbnail  class="fotoUser"  *ngIf="utilizador.Foto; else elseBlock" item-start>
-                <img src="{{utilizador.Foto}}" on-click="showPhoto();" />
 
+    <ion-grid>
+      <ion-row>
 
-              </ion-thumbnail>
+        <ion-col>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4>
+                <div class="fotoUser" *ngIf="utilizador.Foto; else elseBlock" item-start>
+                  <img src="{{utilizador.Foto}}" on-click="showPhoto();" />
+                </div>
 
-              <ng-template #elseBlock>
-                <ion-thumbnail>
-                  <img src="../../assets/img/person.png">
-                </ion-thumbnail>
-              </ng-template>
-            </ion-col>
-            <ion-col>
-              <ngx-qrcode text-end class="qrCode" *ngIf="createdCode" [qrc-value]="createdCode"></ngx-qrcode>
-            </ion-col>
-          </ion-card>
-        </ion-row>
-      </ion-grid>
+                <ng-template #elseBlock>
+                  <ion-thumbnail>
+                    <img src="../../assets/img/person.png">
+                  </ion-thumbnail>
+                </ng-template>
+              </ion-col>
+              <ion-col col-8>
+                <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.Nome != null">
 
+                  <h2>
+                    {{utilizador.Nome}}
+                  </h2>
+                </ion-item>
+                <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.NomeCurso != null || utilizador.AnoEntrada != null">
 
+                  <h2>
+                    {{utilizador.NomeCurso}}
+                    <span *ngIf="utilizador.AnoEntrada != null"> - </span>{{utilizador.AnoEntrada}}
+                  </h2>
+                </ion-item>
+                <ion-item  no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.Biografia != null && utilizador.Biografia !=''">
+                  <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
+                    <p style="margin-top:0px;color:#000000;">
+                      {{utilizador.Biografia}}
+                    </p>
+                  </div>
+                </ion-item>
 
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col col-2  >
+          <div item-end>
+            <ngx-qrcode text-end class="qrCode" *ngIf="createdCode" [qrc-value]="createdCode"></ngx-qrcode>
+          </div>
+        </ion-col>
 
-
-    </ion-item>
-
-
-
-    <h2>
-      {{utilizador.NomeCurso}} - {{utilizador.AnoEntrada}}
-    </h2>
+      </ion-row>
+    </ion-grid>
   </ion-item>
-  <!--   <div style="width:100%;height:220px;margin:0px 0px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:9px;color:#888;vertical-align:middle;">{{utilizador.Biografia}}</i>
-      </div>-->
-  <ion-item id="detalhePerfil-list-item-container9">
-    <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
-      <p style="margin-top:0px;color:#000000;">
-        {{utilizador.Biografia}}
-      </p>
-    </div>
-  </ion-item>
-  <ion-item color="none" href="mailto:" id="detalhePerfil-list-item21">
+
+
+  <ion-item color="none"  id="detalhePerfil-list-item21" *ngIf="utilizador.Email != null && utilizador.Email !='' ">
     <ion-icon name="mail" item-left></ion-icon>
-    {{utilizador.Email}}
+    <a href="mailto:{{utilizador.Email}}" >{{utilizador.Email}}</a>
   </ion-item>
-  <ion-item color="none" href="tel:" id="detalhePerfil-list-item22">
+  <ion-item color="none"  id="detalhePerfil-list-item22" *ngIf="utilizador.Telefone != null && utilizador.Telefone !='' ">
     <ion-icon name="phone-portrait" item-left></ion-icon>
-    {{utilizador.Telefone}}
+   
+    <a href="tel:{{utilizador.Telefone}}" >{{utilizador.Telefone}}</a>
   </ion-item>
+  
+
+  <ion-item color="none"   id="detalhePerfil-list-item22" *ngIf="utilizador.TipoId != null && utilizador.TipoId !=-1 ">
+      <ion-icon name="phone-portrait" item-left></ion-icon>
+      {{utilizador.TipoId}}
+    </ion-item>
+    <ion-item color="none"   id="detalhePerfil-list-item22" *ngIf="utilizador.Setor != null && utilizador.Setor !='' && utilizador.TipoId !=1">
+        <ion-icon name="phone-portrait" item-left></ion-icon>
+        {{utilizador.Setor}}
+      </ion-item>
+  
+    
+
+    <ion-item color="none"   id="detalhePerfil-list-item22" *ngIf="utilizador.NumeroAluno != null && utilizador.NumeroAluno !='' && utilizador.TipoId ==1">
+        <ion-icon name="phone-portrait" item-left></ion-icon>
+        {{utilizador.NumeroAluno}}
+      </ion-item>
+
   <!-- </ion-list>
   </ion-card> -->
   <form id="detalhePerfil-form8">
