@@ -14,7 +14,7 @@ import { Storage } from '@ionic/storage';
 import { MenuController } from 'ionic-angular';
 
 import { LoginPage } from '../pages/login/login';
-
+import { DocumentsPage } from '../pages/documents/documents';
 import { GramPage } from '../pages/gram/gram';
 import { MBACardPage } from '../pages/card/card';
 import { QrReaderPage } from '../pages/qrreader/qrreader';
@@ -93,5 +93,9 @@ export class MyApp {
   goToQrReader(params){
     if (!params) params = {};
     this.navCtrl.setRoot(QrReaderPage);
+  }
+  goToDocuments(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(DocumentsPage);
   }
 }

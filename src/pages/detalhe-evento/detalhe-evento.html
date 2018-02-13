@@ -4,29 +4,30 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Detalhe evento
+        {{evento.Nome}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page5">
-  <h3>{{evento.DataEvento}}</h3>
-  <h1 id="detalheEvento-heading2" style="color:#000000;">
-    {{evento.Nome}}
-  </h1>
-  
-  <div ng-hide="evento.Fotografia === null || evento.Fotografia == ''">
-    <img src="{{evento.Fotografia}}" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
-  </div>
-  
-     
-        <div id="detalheEvento-markdown7" style="text-align:justify;" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            {{evento.Descricao}}
-          </p>
-        </div>
+
+  <ion-card>
+      <h3>{{evento.DataEvento}}</h3>
+          <img ng-hide="evento.Fotografia === null || evento.Fotografia == ''" src="{{evento.Fotografia}}" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
       
-     
-  <button id="detalheEvento-button7" ion-button color="balanced" block small on-click="GoToDetails()">
+  <ion-card-content>
+    <ion-card-title>
+        {{evento.Nome}}
+      </ion-card-title>
+    <p>
+        {{evento.Descricao}}
+    </p>
+  </ion-card-content>
+
+
+    
+ 
+  <button id="detalheEvento-button7" ion-button color="balanced" block small on-click="GoToDetails(evento)">
     Ver mais detalhes
   </button>
+  </ion-card>
 </ion-content>

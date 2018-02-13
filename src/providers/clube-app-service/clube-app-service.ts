@@ -44,6 +44,18 @@ export class ClubeAppServiceProvider {
     });
   }
   
+  getDocumentos() {
+    return new Promise(resolve => {
+      this.http.get(this.getApiUrl+"GetDocumentos")
+      .map(res =>  res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
 
 searchUsers(filter) {
  

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      MBAgram
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list id="networking-list7">
+    <ion-item-sliding>
+    <ion-item color="none" (click)="goToDocument(doc)" id="networking-list-item16" *ngFor="let doc of documentos">
+    
+         
+        <h2>
+          {{doc.Nome}}
+        </h2>
+        <p><small>{{doc.CreationDate}}</small></p>
+     
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="positive" (click)="shareDoc(doc)"></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+        
+</ion-content>

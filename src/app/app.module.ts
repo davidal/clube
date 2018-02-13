@@ -21,6 +21,7 @@ import { QRScanner } from '@ionic-native/qr-scanner';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 //databvase: clubemba_app
@@ -34,6 +35,7 @@ import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-ap
 import { GramPage } from '../pages/gram/gram';
 import { MBACardPage } from '../pages/card/card';
 import { QrReaderPage } from '../pages/qrreader/qrreader';
+import { DocumentsPage } from '../pages/documents/documents';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
     NetworkingPage,
     GramPage,
     MBACardPage,
-    QrReaderPage
+    QrReaderPage,
+    DocumentsPage
   
   ],
   imports: [
@@ -75,7 +78,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
     NetworkingPage,
     GramPage,
     MBACardPage,
-    QrReaderPage
+    QrReaderPage,
+    DocumentsPage
   ],
   providers: [
     StatusBar,
@@ -88,7 +92,8 @@ import { QrReaderPage } from '../pages/qrreader/qrreader';
     FilePath,
     QRScanner,
     PhotoViewer,
-    BarcodeScanner
+    BarcodeScanner,
+    InAppBrowser
   ]
 })
 export class AppModule {}
