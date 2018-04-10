@@ -9,12 +9,32 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page2" ng-if="clubeData != null">
-  <div id="clubeMBA-markdown10" style="text-align:justify;" class="show-list-numbers-and-dots">
+  
+  <h3 id="clubeMBA-markdown10" style="text-align:justify;" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
       {{clubeData.Descricao_text}}
     </p>
-  </div>
-  <ion-list ng-if="clubeData.Eventos.length > 0 " id="clubeMBA-list2">
+  </h3>
+
+  <ion-list *ngIf="arrNoticias.length > 0 " id="clubeMBA-list2">
+      <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
+        Notícias
+      </ion-item-divider>
+    </ion-list>
+    <ion-list id="clubeMBA-list3">
+      <ion-item color="none" on-click="goToDetalheEvento(evento)" id="clubeMBA-list-item13" *ngFor="let noticia of arrNoticias | slice:0:3; ">
+        
+  
+        <h2>
+          {{noticia.title}}
+        </h2>
+        <p>{{noticia.source}} -  {{noticia.pubDate}}</p>
+        
+  
+      </ion-item>
+    </ion-list>
+
+  <ion-list *ngIf="clubeData.Eventos.length > 0 " id="clubeMBA-list2">
     <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
       Eventos
     </ion-item-divider>
@@ -33,8 +53,8 @@
 
     </ion-item>
   </ion-list>
-
-  <ion-list ng-if="clubeData.Equipa.length > 0 " id="clubeMBA-list2">
+<ion-card>
+  <ion-list *ngIf="clubeData.Equipa.length > 0 " id="clubeMBA-list2">
     <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
       Equipa
     </ion-item-divider>
@@ -63,5 +83,5 @@
     </ion-item>
   </div>
   </ion-list>
-
+</ion-card>
 </ion-content>

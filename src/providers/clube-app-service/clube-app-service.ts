@@ -57,6 +57,30 @@ export class ClubeAppServiceProvider {
   }
   
 
+  GetParcerias() {
+    return new Promise(resolve => {
+      this.http.get(this.getApiUrl+"GetParcerias")
+      .map(res =>  res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  GetAppConfig() {
+    return new Promise(resolve => {
+      this.http.get(this.getApiUrl+"GetAppConfig")
+      .map(res =>  res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 searchUsers(filter) {
  
   return new Promise((resolve, reject) => {

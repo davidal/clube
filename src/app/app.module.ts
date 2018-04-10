@@ -22,7 +22,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { ParceriasPage } from '../pages/parcerias/parcerias';
 
 //databvase: clubemba_app
 //username: clubemba_app
@@ -32,6 +32,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClubeAppServiceProvider } from '../providers/clube-app-service/clube-app-service';
+import { CydServiceProvider } from '../providers/clube-app-service/cyd.service';
 import { GramPage } from '../pages/gram/gram';
 import { MBACardPage } from '../pages/card/card';
 import { QrReaderPage } from '../pages/qrreader/qrreader';
@@ -51,8 +52,8 @@ import { DocumentsPage } from '../pages/documents/documents';
     GramPage,
     MBACardPage,
     QrReaderPage,
-    DocumentsPage
-  
+    DocumentsPage,
+    ParceriasPage
   ],
   imports: [
     BrowserModule,
@@ -79,13 +80,15 @@ import { DocumentsPage } from '../pages/documents/documents';
     GramPage,
     MBACardPage,
     QrReaderPage,
-    DocumentsPage
+    DocumentsPage,
+    ParceriasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClubeAppServiceProvider,
+    CydServiceProvider,
     File,
     Transfer,
     Camera,

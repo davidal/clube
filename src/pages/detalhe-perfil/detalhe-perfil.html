@@ -15,11 +15,8 @@
 
     <ion-grid>
       <ion-row>
-
-        <ion-col>
-          <ion-grid>
-            <ion-row>
-              <ion-col col-4>
+ 
+              <ion-col col >
                 <div class="fotoUser" *ngIf="utilizador.Foto; else elseBlock" item-start>
                   <img src="{{utilizador.Foto}}" on-click="showPhoto();" />
                 </div>
@@ -30,38 +27,37 @@
                   </ion-thumbnail>
                 </ng-template>
               </ion-col>
-              <ion-col col-8>
-                <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.Nome != null">
-
-                  <h2>
-                    {{utilizador.Nome}}
-                  </h2>
-                </ion-item>
-                <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.NomeCurso != null || utilizador.AnoEntrada != null">
-
-                  <h2>
-                    {{utilizador.NomeCurso}}
-                    <span *ngIf="utilizador.AnoEntrada != null"> - </span>{{utilizador.AnoEntrada}}
-                  </h2>
-                </ion-item>
-                <ion-item  no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.Biografia != null && utilizador.Biografia !=''">
-                  <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
-                    <p style="margin-top:0px;color:#000000;">
-                      {{utilizador.Biografia}}
-                    </p>
-                  </div>
-                </ion-item>
-
+              <ion-col  >
+                <div item-end>
+                  <ngx-qrcode text-end class="qrCode" *ngIf="createdCode" [qrc-value]="createdCode"></ngx-qrcode>
+                </div>
               </ion-col>
             </ion-row>
-          </ion-grid>
-        </ion-col>
-        <ion-col col-2  >
-          <div item-end>
-            <ngx-qrcode text-end class="qrCode" *ngIf="createdCode" [qrc-value]="createdCode"></ngx-qrcode>
-          </div>
-        </ion-col>
+      
+      <ion-row>
+        <ion-col >
+          <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.Nome != null">
 
+            <h2>
+              {{utilizador.Nome}}
+            </h2>
+          </ion-item>
+          <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.NomeCurso != null || utilizador.AnoEntrada != null">
+
+            <h2>
+              {{utilizador.NomeCurso}}
+              <span *ngIf="utilizador.AnoEntrada != null"> - </span>{{utilizador.AnoEntrada}}
+            </h2>
+          </ion-item>
+          <ion-item  no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.Biografia != null && utilizador.Biografia !=''">
+            <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
+              <p style="margin-top:0px;color:#000000;">
+                {{utilizador.Biografia}}
+              </p>
+            </div>
+          </ion-item>
+
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-item>

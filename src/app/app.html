@@ -3,7 +3,7 @@
     <ion-toolbar style="background-color:#fff" color="secondary">
       <ion-title style="background-color:#fff" color="secondary">
        
-        <img src="assets/img/logo.png"   />
+        <img src="{{Logo}}"   />
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -17,30 +17,35 @@
         <ion-icon name="compass" item-left></ion-icon>
         O Clube MBA
       </ion-item>
-
-      <ion-item color="none" menuClose="" on-click="goToDocuments()" id="menu-list-item30" style="background-color:#c20000;color:#fff">
-          <ion-icon name="document" item-left></ion-icon>
-         Documentos
-        </ion-item>
-      <ion-item color="none" menuClose="" on-click="goToPesquisar()" id="menu-list-item3" style="background-color:#c20000;color:#fff">
-        <ion-icon name="search" item-left></ion-icon>
-        Pesquisar
-      </ion-item>
-      <ion-item color="none" menuClose="" on-click="goToNetworking()" id="menu-list-item17" style="background-color:#c20000;color:#fff">
+  <ion-item color="none" menuClose="" on-click="goToNetworking()" id="menu-list-item17" style="background-color:#c20000;color:#fff">
         <ion-icon name="contacts" item-left></ion-icon>
         Networking
       </ion-item>
-   <ion-item color="none" menuClose="" on-click="goToGram()" id="menu-list-item18" style="background-color:#c20000;color:#fff">
+        <ion-item color="none" menuClose="" on-click="goToPesquisar()" id="menu-list-item3" style="background-color:#c20000;color:#fff">
+        <ion-icon name="search" item-left></ion-icon>
+        Pesquisar
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToDocuments()" id="menu-list-item30" style="background-color:#c20000;color:#fff">
+          <ion-icon name="document" item-left></ion-icon>
+         Documentos & Links
+        </ion-item>
+        <ion-item color="none" menuClose="" on-click="goToParcerias()" id="menu-list-item30" style="background-color:#c20000;color:#fff">
+          
+          <ion-icon class="iconParcerias"  item-left></ion-icon>    
+         Parcerias
+        </ion-item>
+    
+   <!--<ion-item color="none" menuClose="" on-click="goToGram()" id="menu-list-item18" style="background-color:#c20000;color:#fff">
           <ion-icon name="logo-instagram" item-left></ion-icon>
           MBAgram
-        </ion-item>
+        </ion-item>-->
         <ion-item color="none" menuClose="" on-click="goToCard()" id="menu-list-item19" style="background-color:#c20000;color:#fff">
             <ion-icon name="card" item-left></ion-icon>
             MBA Card
           </ion-item>
           <ion-item color="none" menuClose="" on-click="goToQrReader()" id="menu-list-item30" style="background-color:#c20000;color:#fff">
               <ion-icon name="qr-scanner" item-left></ion-icon>
-             QR Code reader
+             Leitor de QR Code
             </ion-item>
          
     </ion-list>

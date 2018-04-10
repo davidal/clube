@@ -4,32 +4,48 @@ import { DetalheEventoPage } from '../detalhe-evento/detalhe-evento';
 import { DetalhePerfilPage } from '../detalhe-perfil/detalhe-perfil';
 import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
 import { NavParams } from 'ionic-angular';
-
+import { CydServiceProvider } from '../../providers/clube-app-service/cyd.service';
 @Component({
   selector: 'page-clube-mba',
   templateUrl: 'clube-mba.html'
 })
 export class ClubeMBAPage {
 
-  clubeData:any={};
+  arrNoticias:any=[];
+  clubeData:any={Eventos:[], Descricao_text:"", Equipa:[], Noticias:this.arrNoticias};
+ 
+ 
   
-  constructor(public navCtrl: NavController, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams,public cydService: CydServiceProvider) {
    //  navCtrl.popToRoot();
    this.clubeData.Eventos=[];
    this.clubeData.Descricao_text="";
    this.clubeData.Equipa=[];
- 
+   this.clubeData.Noticias={artigos:[]};
+   this.clubeData.Noticias.artigos=[];
    this.getClubeInfo();
     
   }
 
   getClubeInfo() {
+
+    this.clubeData.Noticias={artigos:[]};
+    this.clubeData.Noticias.artigos=[];
+
     this.serviceProvider.getClubeInfo()
     .then(data => {
 
         this.clubeData=data;
-      
-     console.log(this.clubeData);
+       
+
+        this.cydService.GetNoticias()
+        .then(data2 => {
+ 
+            this.arrNoticias=data2["artigos"];
+           
+        });
+
+    // console.log(this.clubeData);
     });
   }
 
