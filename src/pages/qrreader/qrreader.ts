@@ -31,7 +31,7 @@ export class QrReaderPage {
           if(this.scannedCode != null && this.scannedCode !=""){
 
             this.scannedCode= this.scannedCode.replace("ClubeMBA#","");
-            this.serviceProvider.searchUsers("UtilizadorId = "+this.scannedCode )
+            this.serviceProvider.searchUsers("u.UtilizadorId = "+this.scannedCode )
     .then(data => {
       if (data !=null){
       

@@ -5,15 +5,18 @@ import { DetalhePerfilPage } from '../detalhe-perfil/detalhe-perfil';
 import { ClubeAppServiceProvider } from '../../providers/clube-app-service/clube-app-service';
 import { NavParams } from 'ionic-angular';
 import { CydServiceProvider } from '../../providers/clube-app-service/cyd.service';
+import { MyApp } from '../../app/app.component';
 @Component({
   selector: 'page-clube-mba',
-  templateUrl: 'clube-mba.html'
+  templateUrl: 'clube-mba.html',
+  providers:[ ClubeAppServiceProvider, CydServiceProvider]
+
 })
 export class ClubeMBAPage {
 
   arrNoticias:any=[];
   clubeData:any={Eventos:[], Descricao_text:"", Equipa:[], Noticias:this.arrNoticias};
- 
+  Logo:string="";
  
   
   constructor(public navCtrl: NavController, public serviceProvider: ClubeAppServiceProvider,public navParams: NavParams,public cydService: CydServiceProvider) {
@@ -23,7 +26,9 @@ export class ClubeMBAPage {
    this.clubeData.Equipa=[];
    this.clubeData.Noticias={artigos:[]};
    this.clubeData.Noticias.artigos=[];
+   this.Logo = serviceProvider.Logo;
    this.getClubeInfo();
+   
     
   }
 
@@ -42,7 +47,7 @@ export class ClubeMBAPage {
         .then(data2 => {
  
             this.arrNoticias=data2["artigos"];
-           
+           console.log(this.arrNoticias);
         });
 
     // console.log(this.clubeData);

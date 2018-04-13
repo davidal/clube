@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http ,RequestOptions} from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-
 import 'rxjs/add/operator/map';
+
 
 /*
   Generated class for the ClubeAppServiceProvider provider.
@@ -15,6 +15,7 @@ export class ClubeAppServiceProvider {
 
   getApiUrl : string = "http://clube-mba.pt/app/actions.php?pwdWS=pwdClubeMBACoimbra&action=";
 
+  public Logo: string = "assets/img/logo.png";
   
   constructor(public http: Http) {
    // console.log('Hello ClubeAppServiceProvider Provider');
@@ -75,6 +76,18 @@ export class ClubeAppServiceProvider {
       .map(res =>  res.json())
       .subscribe(data => {
         resolve(data);
+       
+        if (data != null && ( < string[] > data).length == 1) {
+         
+          var dadosConfig: any = < string[] > data[0];
+          console.log(dadosConfig);
+          if (dadosConfig != null && dadosConfig.Logo != null && dadosConfig.Logo != "") {
+              this.Logo = dadosConfig.Logo;
+              alert(data); 
+          }
+
+        }
+        
       }, err => {
         console.log(err);
       });
@@ -88,6 +101,7 @@ searchUsers(filter) {
     .map(res => res.json())
       .subscribe(res => {
         resolve(res);
+
       }, (err) => {
         reject(err);
       });

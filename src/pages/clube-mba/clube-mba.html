@@ -5,17 +5,20 @@
     </button>
     <ion-title color="secondary">
       Clube MBA
+      
     </ion-title>
+   
   </ion-navbar>
+   <!-- <img src="{{Logo}}" style="max-height: 42px" item-end right  /> -->
 </ion-header>
 <ion-content padding id="page2" ng-if="clubeData != null">
   
-  <h3 id="clubeMBA-markdown10" style="text-align:justify;" class="show-list-numbers-and-dots">
-    <p style="color:#000000;">
+ 
+    <p style="color:#000000;font-size:large;text-align:justify;" id="clubeMBA-markdown10" class="show-list-numbers-and-dots">
       {{clubeData.Descricao_text}}
     </p>
-  </h3>
-
+ 
+  <ion-card>
   <ion-list *ngIf="arrNoticias.length > 0 " id="clubeMBA-list2">
       <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
         Notícias
@@ -33,7 +36,8 @@
   
       </ion-item>
     </ion-list>
-
+    </ion-card>
+    <ion-card>
   <ion-list *ngIf="clubeData.Eventos.length > 0 " id="clubeMBA-list2">
     <ion-item-divider color="light" id="clubeMBA-list-item-divider1">
       Eventos
@@ -53,6 +57,7 @@
 
     </ion-item>
   </ion-list>
+  </ion-card>
 <ion-card>
   <ion-list *ngIf="clubeData.Equipa.length > 0 " id="clubeMBA-list2">
     <ion-item-divider color="light" id="clubeMBA-list-item-divider1">

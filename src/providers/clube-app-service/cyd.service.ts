@@ -25,6 +25,7 @@ export class CydServiceProvider {
   GetNoticias() {
     return new Promise(resolve => {
       //this.http.get(this.getApiUrl+"GetDocumentos")
+
       this.http.get("http://www.pt.cision.com/cisionpoint/xmlcp/default.aspx?userid=DDF9DF11-96A4-47A0-A64C-B6FB38B64A51")
       .map(res =>  res.json())
       .subscribe(data => {

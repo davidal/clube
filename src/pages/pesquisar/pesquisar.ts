@@ -25,7 +25,7 @@ export class PesquisarPage {
     //constroi SQL -- ksa lixe... 20171030
     var sqlString=" 1 = 1 ";
     if(this.search.nome!="")
-      sqlString += " AND Nome like '%"+this.search.nome+"%' ";
+      sqlString += " AND u.Nome like '%"+this.search.nome+"%' ";
     if(this.search.telefone!="")
       sqlString += " AND Telefone like '%"+this.search.telefone+"%' ";
       if(this.search.email!="")
@@ -36,13 +36,14 @@ export class PesquisarPage {
       sqlString += " AND AnoEntrada="+this.search.ano+" ";
       if(this.search.blnOnlyEmails)
       sqlString += " AND (email is not null AND email <>'') ";
-      if(this.search.blnOnlyEmails)
+      if(this.search.blnOnlyPhone)
       sqlString += " AND (telefone is not null AND telefone <>'') ";
       
 
       this.serviceProvider.searchUsers(sqlString)
       .then(data => {
         if (data !=null){
+         //console.log('pesquisa', data);
         if((<string[]>data).length>0) this.users=[];
 
         for(var i=0; i<(<string[]>data).length; i++){

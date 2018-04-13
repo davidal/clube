@@ -34,29 +34,33 @@
               </ion-col>
             </ion-row>
       
-      <ion-row>
+      <ion-row > 
         <ion-col >
-          <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.Nome != null">
+          <ion-item text-wrap no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.Nome != null">
 
             <h2>
               {{utilizador.Nome}}
             </h2>
+            <p *ngIf="utilizador.NumeroAluno != null && utilizador.NumeroAluno!=''" style="font-size:80%">Número de aluno: {{utilizador.NumeroAluno}}</p>
           </ion-item>
-          <ion-item no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.NomeCurso != null || utilizador.AnoEntrada != null">
+          
+          <ion-item  no-lines color="none" id="oMeuPerfil-list-item6" *ngIf="utilizador.NomeCurso != null || utilizador.AnoEntrada != null" style="font-size:80%">
 
-            <h2>
+        
               {{utilizador.NomeCurso}}
               <span *ngIf="utilizador.AnoEntrada != null"> - </span>{{utilizador.AnoEntrada}}
-            </h2>
+            
           </ion-item>
-          <ion-item  no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.Biografia != null && utilizador.Biografia !=''">
-            <div id="detalhePerfil-markdown13" class="show-list-numbers-and-dots perfil">
-              <p style="margin-top:0px;color:#000000;">
-                {{utilizador.Biografia}}
-              </p>
-            </div>
+          <ion-item  style="font-size:80%" text-wrap no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.Biografia != null && utilizador.Biografia !=''" [innerHTML]="utilizador.Biografia.replace('\n','<br />')">
+          
+        </ion-item>
+          <ion-item  style="font-size:80%" text-wrap no-lines id="detalhePerfil-list-item-container9" *ngIf="utilizador.FuncaoClube != null && utilizador.FuncaoClube !=''" [innerHTML]="utilizador.FuncaoClube">
+             
+              
+             
           </ion-item>
-
+ 
+        
         </ion-col>
       </ion-row>
     </ion-grid>

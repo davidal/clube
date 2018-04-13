@@ -74,7 +74,7 @@ export class MyApp {
 
 
   rootPage: any = LoginPage;
-  Logo: any = "assets/img/logo.png";
+  public Logo: any = "assets/img/logo.png";
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage, public menuCtrl: MenuController, public serviceProvider: ClubeAppServiceProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
