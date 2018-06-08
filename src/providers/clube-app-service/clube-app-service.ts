@@ -70,6 +70,20 @@ export class ClubeAppServiceProvider {
     });
   }
 
+  GetAutoCode() {
+    return new Promise(resolve => {
+      this.http.get(this.getApiUrl+"GetAutoCode")
+      .map(res =>  res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+
+
   GetAppConfig() {
     return new Promise(resolve => {
       this.http.get(this.getApiUrl+"GetAppConfig")
@@ -83,7 +97,7 @@ export class ClubeAppServiceProvider {
           console.log(dadosConfig);
           if (dadosConfig != null && dadosConfig.Logo != null && dadosConfig.Logo != "") {
               this.Logo = dadosConfig.Logo;
-              alert(data); 
+             // alert(data); 
           }
 
         }

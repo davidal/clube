@@ -32,7 +32,7 @@ export class OMeuPerfilPage {
 
   loading: Loading;
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
-  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1
+  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1, Gdpr:0,LinkedIn: "" as string
       };
   constructor(public navCtrl: NavController,public menuCtrl: MenuController,public storage:Storage, private camera: Camera, private transfer: Transfer,
      private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform,
@@ -220,6 +220,9 @@ public saveProfile(){
   //   console.log(this.utilizador);
    this.serviceProvider.updateUsers(this.utilizador);
    this.storage.set('user',  this.utilizador);
+
+   this.presentToast('Alterações gravadas');
+   
  //
 }
 

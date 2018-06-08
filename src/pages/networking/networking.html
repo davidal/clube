@@ -10,8 +10,13 @@
 </ion-header>
 <ion-content padding id="page7">
   <ion-list id="networking-list7">
+      <ion-searchbar
+      [(ngModel)]="pesquisa"
+      [showCancelButton]="true"
+       >
+    </ion-searchbar>
     <ion-item-sliding>
-    <ion-item color="none" on-click="goToDetalhePerfil(user)" id="networking-list-item16" *ngFor="let user of users">
+    <ion-item color="none" on-click="goToDetalhePerfil(user)" id="networking-list-item16" *ngFor="let user of users | search: pesquisa">
         
         <ion-thumbnail  *ngIf = "user.Foto; else elseBlock" item-left>
           <img src="{{user.Foto}}" />

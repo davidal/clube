@@ -42,14 +42,14 @@ export class ClubeMBAPage {
 
         this.clubeData=data;
        
-
-        this.cydService.GetNoticias()
-        .then(data2 => {
  
-            this.arrNoticias=data2["artigos"];
-           console.log(this.arrNoticias);
-        });
-
+        // this.cydService.GetNoticias()
+        // .then(data2 => {
+ 
+        //     this.arrNoticias=data2["artigos"];
+        //    console.log(this.arrNoticias);
+        // });
+      // } 
     // console.log(this.clubeData);
     });
   }

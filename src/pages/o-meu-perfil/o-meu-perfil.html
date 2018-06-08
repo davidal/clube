@@ -68,6 +68,13 @@
       </ion-label>
       <ion-input type="tel" placeholder="insira o seu número de telefone" name="perfilTelefone" [(ngModel)]="utilizador.Telefone"></ion-input>
     </ion-item>
+    <ion-item id="oMeuPerfil-input112">
+      <ion-label stacked>
+        <ion-icon name="logo-linkedin"></ion-icon>
+  LinkedIn
+      </ion-label>
+      <ion-input  placeholder="insira o seu link para o seu LinkedIn" name="perfilLinkedIn" [(ngModel)]="utilizador.LinkedIn"></ion-input>
+    </ion-item>
 
     <ion-item id="registar-tipo" >
         <ion-label>
@@ -131,7 +138,11 @@
           <ion-input type="number" name="perfilAno" placeholder="insira o ano em que começou o curso" [(ngModel)]="utilizador.AnoEntrada"></ion-input>
         </ion-item>
        
-
+        <ion-item>
+          <ion-label>Aceito o tratamento dos meus dados pessoais.<p><small>O responsável pelo tratamento dos dados é o Clube MBA FEUC. Os seus dados pessoais não serão transmitidos a qualquer terceiro. Poderá exercer os seus direitos de acesso, informação, notificação e oposição, nos termos da lei através do email direccao@clube-mba.pt.</small></p></ion-label>
+          <ion-checkbox name="GdprCheck" [(ngModel)]="utilizador.Gdpr"></ion-checkbox>
+          
+        </ion-item>
     <button id="oMeuPerfil-button4" ion-button color="positive" block small on-click="saveProfile()">
       Guardar Alterações
     </button>

@@ -97,9 +97,6 @@
             </dict>
         </config-file>
     </platform>
-    <engine name="ios" spec="^4.5.3" />
-    <engine name="browser" spec="5.0.3" />
-    <engine name="android" spec="6.3.0" />
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.6.3" />
     <plugin name="cordova-plugin-filepath" spec="^1.1.0" />
@@ -119,4 +116,6 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
+    <engine name="ios" spec="^4.5.4" />
+    <engine name="browser" spec="5.0.3" />
 </widget>

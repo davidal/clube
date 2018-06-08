@@ -14,8 +14,10 @@ import { LoginPage } from '../login/login';
 })
 export class RegistarPage {
   utilizador: any ={ UtilizadorId: "" as string, Nome: "" as string, Telefone: "" as string, Email:"" as string,  Curso:"" as string, Ano:"", blnOnlyEmails: false, 
-  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1
+  blnOnlyPhone:false , Foto:"" as string, TipoId: -1, SetorId: -1, Gdpr:0 , Password:"" as string, Password2:"" as string
       };
+
+      autoCode: any ="";
 
       setores: any = [];
 
@@ -32,6 +34,14 @@ export class RegistarPage {
         //this.users = data ;
         
       });
+
+
+      this.serviceProvider.GetAutoCode()
+      .then(data => {
+        this.autoCode = data;
+        console.log(data);
+      });
+
 
   }
 
@@ -51,12 +61,12 @@ export class RegistarPage {
 
   public saveProfile(){
 
-    //   console.log(this.utilizador);
+        console.log(this.utilizador);
      this.serviceProvider.insertUsers(this.utilizador).then((msg) => {
       this.presentToast(msg);
     });
 
-      if(this.utilizador.AutoCode=="cyd2018")
+      if(this.utilizador.AutoCode==this.autoCode)
       {
         this.storage.set('user',  this.utilizador).then(() => {
           this.menuCtrl.enable(true, 'menuMBA');

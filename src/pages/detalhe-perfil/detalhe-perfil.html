@@ -76,7 +76,11 @@
    
     <a href="tel:{{utilizador.Telefone}}" >{{utilizador.Telefone}}</a>
   </ion-item>
-  
+  <ion-item color="none"  id="detalhePerfil-list-item223" *ngIf="utilizador.LinkedIn != null && utilizador.LinkedIn !='' ">
+    
+    <ion-icon name="logo-linkedin" item-left></ion-icon>
+    <a href="{{utilizador.LinkedIn}}" >{{utilizador.LinkedIn}}</a>
+  </ion-item>
 
   <ion-item color="none"   id="detalhePerfil-list-item22" *ngIf="utilizador.TipoId != null && utilizador.TipoId !=-1 ">
       <ion-icon name="phone-portrait" item-left></ion-icon>

@@ -41,8 +41,15 @@
        Password
       </ion-label>
       <ion-input type="password" placeholder="insira a sua password" name="perfilPwd" [(ngModel)]="utilizador.Password"></ion-input>
+      
     </ion-item>
-
+    <ion-item id="oMeuPerfil-input10pwd">
+    <ion-label stacked [ngStyle]="{'color': utilizador.Password != utilizador.Password2 ? 'red' : ''}">
+      Confirme Password <span *ngIf="utilizador.Password != utilizador.Password2" [ngStyle]="{'color': utilizador.Password != utilizador.Password2 ? 'red' : ''}">- não correspondem</span>
+     </ion-label>
+     <ion-input type="password" placeholder="insira a sua password" name="perfilPwd" [(ngModel)]="utilizador.Password2"></ion-input>
+     
+   </ion-item>
   <ion-item id="oMeuPerfil-input11">
     <ion-label stacked>
       Telefone
@@ -118,7 +125,14 @@
         </ion-label>
         <ion-input type="text" name="perfilAno" placeholder="Tem um código de registo? Insira-o aqui." [(ngModel)]="utilizador.AutoCode"></ion-input>
       </ion-item>
-  <button id="oMeuPerfil-button4" ion-button color="positive" block small on-click="saveProfile()">
+      <ion-item>
+        <ion-label>Aceito o tratamento dos meus dados pessoais.<p><small>O responsável pelo tratamento dos dados é o Clube MBA FEUC. Os seus dados pessoais não serão transmitidos a qualquer terceiro. Poderá exercer os seus direitos de acesso, informação, notificação e oposição, nos termos da lei através do email direccao@clube-mba.pt.</small></p></ion-label>
+        <ion-checkbox name="GdprCheck" [(ngModel)]="utilizador.Gdpr"></ion-checkbox>
+        
+      </ion-item>
+      
+ 
+  <button id="oMeuPerfil-button4" ion-button color="positive" block small on-click="saveProfile()" *ngIf="utilizador.Password == utilizador.Password2">
     Registar
   </button>
   <div class="spacer" style="width:300px;height:0px;" id="oMeuPerfil-spacer2"></div>

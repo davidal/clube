@@ -23,6 +23,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ParceriasPage } from '../pages/parcerias/parcerias';
+import { SearchPipe } from '../pipes/search/search';
+ 
 
 //databvase: clubemba_app
 //username: clubemba_app
@@ -53,7 +55,8 @@ import { DocumentsPage } from '../pages/documents/documents';
     MBACardPage,
     QrReaderPage,
     DocumentsPage,
-    ParceriasPage
+    ParceriasPage,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
