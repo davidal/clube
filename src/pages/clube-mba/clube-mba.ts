@@ -41,7 +41,7 @@ export class ClubeMBAPage {
     .then(data => {
 
         this.clubeData=data;
-       
+        
  
         // this.cydService.GetNoticias()
         // .then(data2 => {
